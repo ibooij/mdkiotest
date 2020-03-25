@@ -1,6 +1,6 @@
 QT -= gui
 
-CONFIG += c++1z console
+CONFIG += c++1z rtti_off console
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
@@ -28,7 +28,12 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+win32 {
 # MDK (Media Development Kit)
 MDK_DIR = D:\Development\mdk-sdk
 INCLUDEPATH += $$MDK_DIR/include
 LIBS += $$MDK_DIR/lib/x64/mdk.lib
+} 
+macx {
+LIBS += -framework mdk
+}
