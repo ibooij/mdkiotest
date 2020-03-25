@@ -79,7 +79,7 @@ bool MdkLocalFileIO::onUrlChanged()
 
     _videoFile = std::make_unique<QFile>(protocolUrl.toLocalFile());
 
-    qDebug() << "Opening" << _videoFile->fileName();
+    qDebug() << "Localfile: Opening" << _videoFile->fileName();
     if (!_videoFile->open(QFile::ReadOnly)) {
         qDebug() << "Unable to open" << _videoFile->fileName();
         _videoFile.reset();
